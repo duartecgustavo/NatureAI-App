@@ -1,5 +1,5 @@
 const API_CHAT_GPT = 'https://api.openai.com/v1/chat/completions'
-const OPENAI_API_KEY = 'xxxxxxxxx'
+const OPENAI_API_KEY = 'xxxxxxxxxxx'
 
 // CONECTADO AO CHAT
 // export async function callChatGpt(msg) {
