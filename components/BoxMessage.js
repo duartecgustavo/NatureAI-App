@@ -8,7 +8,7 @@ export default function BoxMessage(props) {
         <View>
             <View style={[styles.containerMessage, isUser && styles.userContainer]}>
                 {
-                    !isUser && <Image source={require('./assets/img1.png')} style={styles.chatImage} />
+                    !isUser && <Image source={require('../assets/img1.png')} style={styles.chatImage} />
                 }
                 <View style={styles.messageBox}>
                     <Text>{message}</Text>

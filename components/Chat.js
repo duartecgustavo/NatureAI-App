@@ -1,7 +1,7 @@
 import { default as React, useState } from 'react';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import BoxMessage from './BoxMessage';
-import { callChatGpt } from "./getApi";
+import { callChatGpt } from "../service/getApi";
 
 export default function Chat() {
 
@@ -37,7 +37,7 @@ export default function Chat() {
                     style={styles.inputField}
                 />
                 <TouchableOpacity onPress={handleMessage} style={styles.buttonChat}>
-                    <Image source={require('./assets/arrowRight.svg')} style={styles.buttonImage} />
+                    <Image source={require('../assets/arrowRight.svg')} style={styles.buttonImage} />
                 </TouchableOpacity>
 
             </View>

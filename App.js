@@ -1,10 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
-import Chat from './Chat';
-
+import Chat from './components/Chat';
+import CardDepositions from './components/CerdDepositions';
+import { getDicas } from './service/getDepoiments';
+import MyForm from './components/Form';
 
 export default function App() {
+  const [dicas, setDicas] = useState([]);
+
+  async function fetchData() {
+    console.log("buscou")
+    try {
+      const data = await getDicas();
+      console.log("dicas", data);
+      setDicas(data)
+    } catch (error) {
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -24,6 +42,22 @@ export default function App() {
           <Image source={require('./assets/img1.png')} style={styles.imgbody} />
         </View>
 
+        <View style={styles.containerDepoiments}>
+        <MyForm fetchData={fetchData} />
+        </View>
+
+        <View style={styles.containerDepoiments}>
+          {dicas.map(
+            (dica, index) =>
+              <CardDepositions
+                key={index}
+                title={dica.titulo}
+                type={dica.tipo}
+                deposition={dica.dica}
+                name={dica.nome}
+              />
+          )}
+        </View>
 
         <Chat />
       </ScrollView>
@@ -80,5 +114,11 @@ const styles = StyleSheet.create({
   imgbody: {
     width: 300,
     height: 300,
+  },
+  containerDepoiments: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '20px',
+    gap: 10
   },
 })

@@ -3,6 +3,13 @@
     "name": "react-native-nature-ai",
     "slug": "react-native-nature-ai",
     "version": "1.0.0",
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "745a9e2c-4ee8-4f8a-af5a-2c1b41d5c6c0"
+      }
+    }
   }
 }
