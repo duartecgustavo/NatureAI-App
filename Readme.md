@@ -8,6 +8,7 @@
 
 ## TECNOLOGIAS:
 - React Native
+- Axios
 - Expo
 
 ---
